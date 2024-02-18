@@ -54,9 +54,40 @@ body, .snake {
     margin: 0;
 }
 
-#scores {
+.scores {
     display: flex;
     justify-content: space-between;
 }
 
-#
+#score {
+    color: #abb78a;
+}
+
+#score, #highScore {
+    font-size: 40px;
+    font-weight: bolder;
+    margin: 10px 0;
+}
+
+#highScore {
+    color: #d8ddca;
+    display: none;
+}
+
+.game-border-3, #logo {
+    background-color: #c4cfa3
+}
+
+.snake {
+    border: #5a5a5a 1px dotted;
+
+}
+
+.food {
+    background-color: #dedede;
+    border: #999 5px solid;
+}
+
+#logo {
+    position: absolute;
+}
