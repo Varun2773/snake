@@ -82,9 +82,11 @@ function move() {
 
     if (head.x === food.x && head.y === food.y) {
         food = generateFood();
+        increaseSpeed();
         clearInterval();
         gameInterval = setInterval(() => {
             move();
+            // checkCollision();
             draw();
         }, gameSpeedDelay);
     } else {
@@ -110,4 +112,33 @@ function startGame() {
     }, gameSpeedDelay);
 }
 
-//kepres
+//kepress event listener
+function handleKeyPress(event) {
+    if(
+        (!gameStarted && event.code === 'Space') || 
+        (!gameStarted && event.code === ' ') 
+        ) {
+        startGame();
+    }else {
+        switch (event.key) {
+            case 'ArrowUp':
+                direction = 'up';
+                break;
+            case 'ArrowDown':
+                direction = 'down';
+                break;
+            case 'ArrowLeft':
+                direction = 'left';
+                break;
+            case 'ArrowRight':
+                direction = 'right';
+                break;
+        }
+    }
+}
+
+document.addEventListener('keydown', handleKeyPress);
+
+function increaseSpeed() {
+    // last in 1:15:18
+}
