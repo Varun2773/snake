@@ -140,5 +140,6 @@ function handleKeyPress(event) {
 document.addEventListener('keydown', handleKeyPress);
 
 function increaseSpeed() {
+ 
     // last in 1:15:18
 }
