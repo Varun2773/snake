@@ -14,8 +14,7 @@ function draw() {
 function  drawSnake() {
     snake.forEach((segment) => {
         const snakeElement = createGameElement('div','snake');
-
-        // last a complete at 33.38 min
+        
 
     })
 }
