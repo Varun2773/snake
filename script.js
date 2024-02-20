@@ -83,10 +83,10 @@ function move() {
     if (head.x === food.x && head.y === food.y) {
         food = generateFood();
         increaseSpeed();
-        clearInterval();
+        clearInterval(gameInterval);
         gameInterval = setInterval(() => {
             move();
-            // checkCollision();
+            checkCollision();
             draw();
         }, gameSpeedDelay);
     } else {
@@ -107,7 +107,7 @@ function startGame() {
     logo.style.display = 'none';
     gameInterval = setInterval(() => {
         move();
-        // checkCollision();
+        checkCollision();
         draw();
     }, gameSpeedDelay);
 }
@@ -140,6 +140,36 @@ function handleKeyPress(event) {
 document.addEventListener('keydown', handleKeyPress);
 
 function increaseSpeed() {
- 
     // last in 1:15:18
+    if (gameSpeedDelay > 150) {
+        gameSpeedDelay -= 5;
+    } else if (gameSpeedDelay > 100 ) {
+        gameSpeedDelay -= 3;
+    } else if (gameSpeedDelay > 50 ) {
+        gameSpeedDelay -= 2;
+    } else if (gameSpeedDelay > 25 ) {
+        gameSpeedDelay -= 1;
+    }
+}
+
+function checkCollision() {
+    const head = snake[0];
+
+    if(head.x < 1 || head.x > gridSize || head.y < 1 || head > gridSize){
+        resetGame();
+    }
+
+    for (let i = 1; i < snake.length; i++){
+        if (head.x === snake[i].x && head.y === snake[i].y){
+           resetGame(); 
+        }
+    }
+}
+
+function resetGame() {
+    snake = [{x: 10, y:10}];
+    food = generateFood();
+    direction = 'right';
+    gameSpeedDelay = 200;
+    updateScore();
 }
