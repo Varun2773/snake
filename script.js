@@ -183,7 +183,7 @@ function resetGame() {
 }
 
 function updateScore(){
-    const currentScore = snake.lenght - 1;
+    const currentScore = snake.length - 1;
     score.textContent = currentScore.toString().padStart(3,'0');
 }
 
@@ -197,7 +197,7 @@ function stopGame() {
 
 function updateHighScore() {
     const currentScore = snake.length - 1;
-    if(currentScore < highScore) {
+    if(currentScore > highScore) {
         highScore = currentScore;
         highScoreText.textContent = highScore.toString().padStart(3,'0');
     }
