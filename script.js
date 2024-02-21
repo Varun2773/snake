@@ -203,3 +203,5 @@ function updateHighScore() {
     }
     highScoreText.style.display = 'block';
 }
+
+hi
